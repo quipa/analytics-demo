@@ -41,9 +41,9 @@ r.colors -e map=gms_l1 color=blues
 d.vect map=project_area fill_color=none
 
 # Add map features (grid, north arrow)
-d.grid -c size=10 fontsize=15 color=blue
+d.grid -c size=10 fontsize=10 text_color=black
 
-d.northarrow at=85,90
+d.northarrow at=85,88
 
 
 # Release monitor
