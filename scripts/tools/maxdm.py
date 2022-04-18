@@ -29,7 +29,7 @@ class GMS(BaseEstimator):
     Similarity is calculated as:
         1 - (scaled distance / number of variables)
         
-    This model is similar to BIOCLIM model, but uses a geoemtric median instead of an average.
+    This model is should be similar to BIOCLIM model, but uses a geoemtric median instead of an centroid (mean).
         
     Warning
     -------
@@ -105,8 +105,10 @@ class GMS(BaseEstimator):
         dist = pairwise_distances(
             X_scaled, self.geom_median, metric=self.metric)
         
+        # Calculate similarity
         sim = 1 - (dist / len(self.columns))
         
+        # Convert similarity output to dataframe while keeping input indexes
         df = pd.DataFrame(index=X.index)
         df['sim'] = sim
         
@@ -133,7 +135,7 @@ class KNNS(BaseEstimator):
     Similarity is calculated as:
         1 - (mean(knn scaled distances) / number of variables)
         
-    This model is similar to DOMAIN model when k = 1.
+    This model is should be similar to DOMAIN model when k = 1.
         
     Warning
     -------
@@ -201,21 +203,19 @@ class KNNS(BaseEstimator):
         if np.logical_or(X_scaled < 0, X_scaled > 1).any():
             warnings.warn('Some values are beyond fitted model ranges.')
         
+        # Calculate distances to occurences
         dist = pairwise_distances(X_scaled, self.occ_scaled, metric=self.metric)
         
+        # Select k nearest neighbours
         knn = np.sort(dist, axis=1)[:,:self.k]
-        # print("knn.shape", knn.shape)
-        # print("knn[:,:self.k].shape", knn[:,:self.k].shape)
-        # knn
         
-        # FIXME not selecting k nearest
+        # Calculate mean of k nearest neighbours
         mean_dist = knn.mean(axis=1)
         
-        print(knn.shape)
-        print(mean_dist.shape)
-        
+        # Calculate similarity
         sim = 1 - (mean_dist / len(self.columns))
         
+        # Convert similarity output to dataframe while keeping input indexes
         df = pd.DataFrame(index=X.index)
         df['sim'] = sim
         

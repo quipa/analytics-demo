@@ -8,16 +8,14 @@ This project showscases my data geospatial analytic skils with a case study spec
 
 The case study is the great xenops *Megaxenops parnaguae* a typical furnariid bird of the Brazilian Caatinga ([Wikipedia](https://en.wikipedia.org/wiki/Great_xenops), [BirdLife Factsheet](http://datazone.birdlife.org/species/factsheet/great-xenops-megaxenops-parnaguae)).
 
-<!-- ![*Megaxenops parnaguae*](https://en.wikipedia.org/wiki/Great_xenops#/media/File:Great_Xenops_Megaxenops_parnaguae.jpg)
+![*Megaxenops parnaguae*](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Great_Xenops_Megaxenops_parnaguae.jpg/320px-Great_Xenops_Megaxenops_parnaguae.jpg)
 # Source: Wikipedia
--->
 
 The project creates a Species Distribution Model (SDM) for the case study species. It uses a prototype tool <a name='maxdm'></a>[MAXDM](/scripts/tools/maxdm.py) (**Max**im's Species **D**istribution **M**odels) specifically coded for this demonstration.
 
-*MAXDM* SDMs predicts patterns based on environmental variable similarity to occurence sites. It implements a geometric median similarity (GMS) and a k nearest neighbours similarity (KNNS) method.
+*MAXDM* SDMs predict patterns based on environmental variable similarity to occurence sites. It implements a geometric median similarity (GMS) and a k nearest neighbours similarity (KNNS) method.
 
-These similarity methods are can be applied to presence-only data, and a relatively straightforward to calculate.
-which can be easily  .
+These similarity methods are applicable to presence-only data, and a relatively straightforward to calculate.
 
 To better understand the author's choices see [justifications](/justifications).
 
