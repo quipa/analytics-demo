@@ -113,6 +113,7 @@ grass-process:\
 		grass-define-area \
 		grass-convert-gbif-occ
 
+# Ensures correct gisdbase and mapset is selected
 grass-select-mapset:
 	grass $(MAPSET) --exec true
 
