@@ -47,7 +47,7 @@ To list subtasks `make summary`, for further details read [`Makefile`](Makefile)
 
 Look in [`scripts`](scripts/) folder for specific bash or python scripts, these have similar names to those defined in the `Makefile`.
 
-External is downloaded into [`data/external`](data/external/) folder. Internal data, including GRASS GIS data, is stored in [`data/internal`](data/internal/) folder.
+External data is downloaded into `data/external` folder. Internal data is stored in `data/internal` folder, including GRASS GIS data.
 
 Map is saved into [`maps`](maps/) folder.
 
