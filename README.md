@@ -15,19 +15,19 @@ The project creates a Species Distribution Model (SDM) for the case study specie
 
 *MAXDM* SDMs predict patterns based on environmental variable similarity to occurence sites. It implements a geometric median similarity (GMS) and a k nearest neighbours similarity (KNNS) method.
 
-These similarity methods are applicable to presence-only data, and a relatively straightforward to calculate.
+These similarity methods are applicable to presence-only data and are relatively straightforward to calculate and reason about.
 
-To better understand the author's choices see [justifications](/justifications).
+To better understand the author's choices see [justifications](#justifications).
 
 
 ## Tasks
 
-Here is a brief overview of the project's tasks and tools invovled.
+Here is a brief summary of the involved tasks and tools:
 
   1. Setup project: folders, scripts, packages, GRASS GIS; `Makefile`
   2. Download base data: [WorldClim](#worldclim), ['Natural Earth'](#natural-earth), [GBIF](#gbif))
   3. Process data: bash and GRASS GIS
-  4. Fit and apply model: python ([maxdm](#maxdm)) and GRASS GIS
+  4. Fit and apply model: python ([MAXDM](#maxdm)) and GRASS GIS
   5. Visualise model results: GRASS GIS map (png)
 
 
@@ -43,13 +43,13 @@ In project root run `make` in command-line. For specific tasks run:
 4. `make model`
 5. `make visualise`
 
-To list subtasks `make summary`, for further details read [`Makefile`](/Makefile).
+To list subtasks `make summary`, for further details read [`Makefile`](Makefile).
 
-Look in [`scripts`](/scripts) folder for specific bash or python scripts, these have similar names to those defined in the `Makefile`.
+Look in [`scripts`](scripts/) folder for specific bash or python scripts, these have similar names to those defined in the `Makefile`.
 
-External is downloaded into [`data/external`](/data/external) folder. Internal data, including GRASS GIS data, is stored in [`data/internal`](/data/internal) folder.
+External is downloaded into [`data/external`](data/external/) folder. Internal data, including GRASS GIS data, is stored in [`data/internal`](data/internal/) folder.
 
-Map is saved into [`maps`](/maps) folder.
+Map is saved into [`maps`](maps/) folder.
 
 Most scripts are in bash as it integrates well with GRASS GIS. Python is used for complex components.
 
