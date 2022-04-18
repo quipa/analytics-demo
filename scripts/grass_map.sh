@@ -13,7 +13,7 @@ g.mapset mapset=FFI
 # Setup GRASS region for mapping
 g.region --overwrite n=-0 s=-25 e=-33 w=-55 align=bio_1 save=map_area      
 # Setup image output
-d.mon cairo out=maps/gms_map.png width=1600 height=1600 --overwrite
+d.mon cairo out=maps/gms_map.png width=800 height=800 --overwrite
 
 # Remove all frames and erase monitor
 d.frame -e
@@ -23,9 +23,9 @@ d.text text="$TITLE" at=50,95 \
     align=cc size=4.5 font="$FONT" color=black
 
 # Place raster legend
-d.legend raster=gms_l1 at=4,6,10,90 \
+d.legend raster=gms_l1 at=5,7,10,90 \
     range=0.75,1.0 \
-    title="$LEGEND_LABEL" title_fontsize=40 fontsize=25 font="$FONT" \
+    title="$LEGEND_LABEL" title_fontsize=25 fontsize=25 font="$FONT" \
 
 # Setup map area
 d.frame -c frame=first at=15,90,10,90
