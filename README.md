@@ -10,7 +10,7 @@ The case study is the great xenops *Megaxenops parnaguae* a typical furnariid bi
 
 ![*Megaxenops parnaguae*](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Great_Xenops_Megaxenops_parnaguae.jpg/320px-Great_Xenops_Megaxenops_parnaguae.jpg)
 
-Source: Wikipedia
+*Image source: [Wikipedia](https://commons.wikimedia.org/wiki/File:Great_Xenops_Megaxenops_parnaguae.jpg) (João Quental CC BY 2.0)*
 
 The project creates a Species Distribution Model (SDM) for the case study species. It uses a prototype tool <a name='maxdm'></a>[MAXDM](/scripts/tools/maxdm.py) (**Max**im's Species **D**istribution **M**odels) specifically coded for this demonstration.
 
