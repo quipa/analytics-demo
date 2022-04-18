@@ -99,7 +99,7 @@ I choose the great xenops as I have a great interest in the Caatinga seasonally 
 I choose data sources that have worldwide application to demonstrate how the project could be adapted for other target species/taxa. Worldclim 2.5 minutes data was selected as compromise between resolution and download time.
 
 ### Geospatial analysis framework
-This project predominantly uses GRASS GIS, the Python ecosystem, `bash`, `make` and other Linux/UNIX commands (e.g. wget, awk) for geospatial analysis.
+This project uses GRASS GIS, the Python ecosystem, `bash`, `make` and other Linux/UNIX commands (e.g. wget, awk) for geospatial analysis. It is completely based on open source software and tools.
 
 #### GRASS GIS
 GRASS GIS is particularly apt for dealing with raster data which is common in SDMs. It has good integration with with python and bash, which makes it particularly suited for automated and reproducible data analysis.
