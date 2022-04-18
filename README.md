@@ -49,7 +49,7 @@ Look in [`scripts`](scripts/) folder for specific bash or python scripts, these 
 
 External data is downloaded into `data/external` folder. Internal data is stored in `data/internal` folder, including GRASS GIS data.
 
-Map is saved into [`maps`](maps/) folder.
+Generated maps are saved into [`maps`](maps/) folder.
 
 Most scripts are in bash as it integrates well with GRASS GIS. Python is used for complex components.
 
@@ -68,28 +68,28 @@ Most scripts are in bash as it integrates well with GRASS GIS. Python is used fo
 Porting to other operating systems should be possible:
 
 * Linux distributions:
-  * Adapt `setup-packages` in Makefile to use OS package manager (`apt`, `yum`, etc.)
+  * Adapt `setup-packages` in `Makefile` to use OS package manager (`apt`, `yum`, etc.)
 * Mac OS:
-  * Adapt `setup-packages` in Makefile to use [MacPorts](https://www.macports.org/) or other ports/package manager
+  * Adapt `setup-packages` in `Makefile` to use [MacPorts](https://www.macports.org/) or other ports/package manager
 * Windows:
   * install POSIX compliant subsystem/runtime ([WSL](https://docs.microsoft.com/en-us/windows/wsl/install), [cygwin](https://cygwin.com/))
-  * adapt `setup-packages` in Makefile to use subsystem package manager
+  * adapt `setup-packages` in `Makefile` to use subsystem package manager
 
 
 <a name='justifications'></a>
 ## Project justification
 
 ### Species choice
-I choose the great xenops as I have a great interest in the Caatinga seasonally dry tropical forest and ornithology. While mostly a personal choice, this species is also and interesting in its own right as it is closely associated with both dense Caatinga, while tolerating degraded Caatinga.
+I choose the great xenops as I have a great interest in the Caatinga seasonally dry tropical forest and ornithology. This species is interesting as it is closely associated with both dense Caatinga, while tolerating degraded Caatinga. It is also an iconic Caatinga species.
 
 ### Data choice
-I choose data sources that have worldwide application to demonstrate how the project could be adapted for other target species/taxa.
+I choose data sources that have worldwide application to demonstrate how the project could be adapted for other target species/taxa. Worldclim 2.5 minutes data was selected as compromise between resolution and download time.
 
 ### Geospatial analysis framework
 This project predominantly uses GRASS GIS, the Python ecosystem, `bash`, `make` and other Linux/UNIX commands (e.g. wget, awk) for geospatial analysis.
 
 ### GRASS GIS
-GRASS GIS is particularly capable for dealing with raster data which is central in SDMs. It has good integration with with python and bash, which makes it particularly suited for automated and reproducible data analysis.
+GRASS GIS is particularly apt for dealing with raster data which is common in SDMs. It has good integration with with python and bash, which makes it particularly suited for automated and reproducible data analysis.
 
 It also provides a good user interface that is useful for interactive data analysis, for protyping batch analysis, and for veryfying batch analysis results
 
@@ -101,22 +101,22 @@ GRASS GIS is also open source, which makes it particularly well suited for used 
 Python is particularly useful due to the following packages:
   * numerical computation (numpy, scipy, xarray)
   * data processing (pandas, numpy)
-  * modelling (scikit-learn, etc.)
+  * machine learning and statistical modelling (scikit-learn, etc.)
 
 ### make
-A make is a useful tool for organising data analysis pipelines as it allows to define different task and data dependencies using a `Makefile`.
+A make is a useful tool for organise data analysis pipelines as it allows to define different task and data dependencies using a `Makefile`.
 
 This is more flexible then a 'task' script since specific tasks can easily run. When dependencies are met (downloaded data files) this also avoids repeating work.
 
 ### Other unix tools
-* wget: simple tool for download data
-* awk: useful for text processing
+* wget: easy to use tool for downloading data
+* [awk](https://en.wikipedia.org/wiki/AWK): useful language for text/csv processing
 
 <a name='maxdm-justification'></a>
 ### MAXDM protoype
-I prototyped [MAXDM](#maxdm) to demonstrate my ability to develop tools/models, in this case using flexible packages (e.g. scikit-learn) with *off-the-shelf* components. This similarity/distance based approach was selected as it could be implemented in a short period of time (2-3 days).
+I prototyped [MAXDM](#maxdm) to demonstrate my ability to develop tools/models, in this case using a flexible package ([scikit-learn](https://scikit-learn.org/)) with *off-the-shelf* components. This similarity/distance based approach was selected as it could be implemented in a short period of time (2-3 days).
 
-In previous positions I have worked heavily with these types of modelling:
+Note that in previous positions I have worked heavily with these types of modelling techniques / tools:
 
 * Generalised Linear Models (GLMs) based on abundance monitoring data (using [`statsmodels`](https://www.statsmodels.org/) and `scikit-learn`.
 * Hybrid ecological models linking GLMs to land use / land cover dynamic models agent-based / system dynamics models (using [NetLogo](https://en.wikipedia.org/wiki/NetLogo) and [Stella](https://en.wikipedia.org/wiki/STELLA_(programming_language)))
@@ -129,9 +129,9 @@ In previous positions I have worked heavily with these types of modelling:
 
 ## Data sources
 
-* <a name="worldclim"></a>[WorldCLim](https://www.worldclim.org/data/worldclim21.html)
+* [GBIF](#gbif) 
   * *Megaxenops parnaguae* Reiser, 1905 occurences with coordinates (presence-only)
-* [GBIF](#gbif) 2.1 historical climate data 2.5 minutes resolution
+* <a name="worldclim"></a>[WorldCLim](https://www.worldclim.org/data/worldclim21.html) 2.1 historical climate data 2.5 minutes resolution
   * Bioclimatic variables
   * Elevation
 * <a name="natural-earth"></a>[Natural Earth](https://www.naturalearthdata.com/) 1:10m
