@@ -10,7 +10,7 @@ The case study is the great xenops *Megaxenops parnaguae* a typical furnariid bi
 
 ![*Megaxenops parnaguae*](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Great_Xenops_Megaxenops_parnaguae.jpg/320px-Great_Xenops_Megaxenops_parnaguae.jpg)
 
-*Image source: [Wikipedia](https://commons.wikimedia.org/wiki/File:Great_Xenops_Megaxenops_parnaguae.jpg) (João Quental CC BY 2.0)*
+*Image source: [Wikimedia](https://commons.wikimedia.org/wiki/File:Great_Xenops_Megaxenops_parnaguae.jpg) (João Quental CC BY 2.0)*
 
 The project creates a Species Distribution Model (SDM) for the case study species. It uses a prototype tool <a name='maxdm'></a>[MAXDM](/scripts/tools/maxdm.py) (**Max**im's Species **D**istribution **M**odels) specifically coded for this demonstration.
 
@@ -26,18 +26,18 @@ Example of map for a technical report:
 
 ## Tasks
 
-Here is a brief summary of the involved tasks and tools:
+Summary of tasks and tools:
 
-  1. Setup project: folders, scripts, packages, GRASS GIS; `Makefile`
-  2. Download base data: [WorldClim](#worldclim), ['Natural Earth'](#natural-earth), [GBIF](#gbif))
-  3. Process data: bash and GRASS GIS
-  4. Fit and apply model: python ([MAXDM](#maxdm)) and GRASS GIS
-  5. Visualise model results: GRASS GIS map (png)
+  1. Setup project (folders, scripts, packages, GRASS GIS): `Makefile`, `bash`
+  2. Download base data ([WorldClim](#worldclim), ['Natural Earth'](#natural-earth), [GBIF](#gbif)): `wget`, `bash`
+  3. Process data: `bash`, GRASS GIS
+  4. Fit and apply model: `python` ([MAXDM](#maxdm)), GRASS GIS python API (`grassscript`)
+  5. Visualise model results (PNG map): `bash`, GRASS GIS
 
 
 ## Setup
 
-Current setup is defined for Linux Mint 20.3.
+Current setup is for Linux Mint 20.3.
 
 In project root run `make` in command-line. For specific tasks run:
 
@@ -56,6 +56,15 @@ External data is downloaded into `data/external` folder. Internal data is stored
 Generated maps are saved into [`maps`](maps/) folder.
 
 Most scripts are in bash as it integrates well with GRASS GIS. Python is used for complex components.
+
+**If you get any warnings due to GRASS GIS environment run GUI with the following inputs at startup:**
+* Database directory: analytics-demo/data/internal/grassdata/
+* Location: WGS_84
+* Mapset: FFI 
+
+The entire setup can be cleaned up as follows:
+* `make clean` : removes data folder for clean data setup (still keeps installed packages)
+* `make clean-grass`: removes grassdata folder for clean GRASS GIS setup
 
 ### Dependencies
   * GRASS GIS 7.8
@@ -92,7 +101,7 @@ I choose data sources that have worldwide application to demonstrate how the pro
 ### Geospatial analysis framework
 This project predominantly uses GRASS GIS, the Python ecosystem, `bash`, `make` and other Linux/UNIX commands (e.g. wget, awk) for geospatial analysis.
 
-### GRASS GIS
+#### GRASS GIS
 GRASS GIS is particularly apt for dealing with raster data which is common in SDMs. It has good integration with with python and bash, which makes it particularly suited for automated and reproducible data analysis.
 
 It also provides a good user interface that is useful for interactive data analysis, for protyping batch analysis, and for veryfying batch analysis results
@@ -101,32 +110,32 @@ GRASS GIS provides a more robust, homogenous, and well integrated geospatial ana
 
 GRASS GIS is also open source, which makes it particularly well suited for used in resource-constrained environments (conservation projects in the Global South)
 
-### Python
+#### Python
 Python is particularly useful due to the following packages:
   * numerical computation (numpy, scipy, xarray)
   * data processing (pandas, numpy)
   * machine learning and statistical modelling (scikit-learn, etc.)
 
-### make
+#### make
 A make is a useful tool for organise data analysis pipelines as it allows to define different task and data dependencies using a `Makefile`.
 
 This is more flexible then a 'task' script since specific tasks can easily run. When dependencies are met (downloaded data files) this also avoids repeating work.
 
-### Other unix tools
+#### Other unix tools
 * wget: easy to use tool for downloading data
 * [awk](https://en.wikipedia.org/wiki/AWK): useful language for text/csv processing
 
 <a name='maxdm-justification'></a>
-### MAXDM protoype
+#### MAXDM protoype
 I prototyped [MAXDM](#maxdm) to demonstrate my ability to develop tools/models, in this case using a flexible package ([scikit-learn](https://scikit-learn.org/)) with *off-the-shelf* components. This similarity/distance based approach was selected as it could be implemented in a short period of time (2-3 days).
 
-Note that in previous positions I have worked heavily with these types of modelling techniques / tools:
+Note that in previous positions I have worked heavily with the following kinds of modelling techniques / tools:
 
 * Generalised Linear Models (GLMs) based on abundance monitoring data (using [`statsmodels`](https://www.statsmodels.org/) and `scikit-learn`).
 * Hybrid ecological models linking GLMs to land use / land cover dynamic models agent-based / system dynamics models (using [NetLogo](https://en.wikipedia.org/wiki/NetLogo) and [Stella](https://en.wikipedia.org/wiki/STELLA_(programming_language)))
 
 <!--- 
-### Package manager
+#### Package manager
 *TODO* write about conda
 -->
 

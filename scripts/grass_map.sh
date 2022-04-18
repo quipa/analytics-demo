@@ -17,6 +17,9 @@ d.mon cairo out=maps/gms_map.png width=800 height=800 --overwrite
 # Remove all frames and erase monitor
 d.frame -e
 
+# Modify GMS model output colour table
+r.colors -e map=gms_l1 color=blues # -e histogram equalisation
+
 # Place title text
 d.text text="$TITLE" at=50,95 \
     align=cc size=4.5 font="$FONT" color=black
@@ -32,9 +35,8 @@ d.frame -c frame=first at=15,90,10,90
 # Add Brazilian state boundaries
 d.vect map=ne_10m_admin_1_states_provinces
 
-# Add GMS model output and modify colour table
+# Add GMS model output
 d.rast --o map=gms_l1
-r.colors -e map=gms_l1 color=blues # -e histogram equalisation
 
 # Add Brazilian states overlay (project area)
 d.vect map=project_area fill_color=none

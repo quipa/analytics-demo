@@ -8,6 +8,7 @@ WC=$(EXTERNAL)/worldclim
 NE=$(EXTERNAL)/natural-earth
 GBIF=$(EXTERNAL)/GBIF
 GRASS=$(INTERNAL)/grassdata
+MAPSET=$(GRASS)/WGS_84/FFI
 
 WC_URL=https://biogeo.ucdavis.edu/data/worldclim/v2.1/base
 NE_URL=https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m
@@ -57,16 +58,15 @@ setup-scripts:
 
 setup-packages:
 	## [TASK] 1.2 Install Linux Mint 20.3 packages
-	sudo apt -qq update
-	sudo apt -qq install grass \
+	sudo apt -q update
+	sudo apt -q install grass \
 		python3 python3-pandas python3-sklearn python3-xarray \
 		bash wget gawk
 
-setup-grass: setup-packages
+setup-grass:
 	## [TASK] 1.3 Setup GRASS GIS base, WGS 84, location and mapset
 	grass -e -c EPSG:4326 $(GRASS)/WGS_84
 	grass $(GRASS)/WGS_84/PERMANENT --exec g.mapset -c mapset=FFI
-
 
 # 2. Download base data
 download: worldclim natural-earth gbif-occ
@@ -108,12 +108,15 @@ $(INTERNAL)/occ_megaxenops_parnaguae_selected.csv: $(GBIF)/occ_megaxenops_parnag
 	awk -F '\t' 'NR == 1 || $$38 == "EBIRD"' $^ > $@
 
 grass-process:\
+		grass-select-mapset \
 		grass-import \
 		grass-define-area \
 		grass-convert-gbif-occ
 
+grass-select-mapset:
+	grass $(MAPSET) --exec true
 
-grass-import: \
+grass-import:\
 		grass-import-print \
 		grass-import-worldclim \
 		grass-import-natural-earth \
@@ -121,7 +124,6 @@ grass-import: \
 
 grass-import-print:
 	## [TASK] 3.2 Import raster, vector and csv into GRASS GIS
-	grass $(GRASS)/WGS_84/PERMANENT --exec true
 
 grass-import-worldclim: worldclim \
 		$(WC)/wc2.1_2.5m_bio_1.tif \
@@ -187,6 +189,9 @@ grass-map:
 
 clean:
 	rm -R data/
+
+clean-grass:
+	rm -R data/internal/grassdata
 
 backup:
 	mv data/ data_bak/
