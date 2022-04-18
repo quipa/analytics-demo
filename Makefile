@@ -22,26 +22,26 @@ short-summary:
 	# 2. Download base data
 	# 3. Process data
 	# 4. Fit and use model
-	# 6. Visualise model results
+	# 5. Visualise model results
 
 summary:
-# 1. Setup project
-	## [TASK] 1.1 Create projects folders and make scripts executable
-	## [TASK] 1.2 Install Linux Mint 20.3 packages
-	## [TASK] 1.3 Setup GRASS GIS base, WGS 84, location and mapset
-# 2. Download base data
-	## [TASK] 2.1 Download worldclim data
-	## [TASK] 2.2 Download 'Natural Earth' data
-	## [TASK] 2.3 Download ocurrence data from GBIF
-# 3. Process data
-	## [TASK] 3.1 Select eBird occurence data
-	## [TASK] 3.2 Import raster, vector and csv into GRASS GIS
-	## [TASK] 3.3 Define project area
-	## [TASK] 3.4 Convert occurence data to raster
-# 4. Fit and use model
-	## [TASK] 4.1 Fit and use MAXDM similarity-based models (GMS, KNNS)
-## 5. Visualise model results
-	## [TASK] 5.1 Generate GRASS GIS map
+	# 1. Setup project
+		## 1.1 Create projects folders and make scripts executable
+		## 1.2 Install Linux Mint 20.3 packages
+		## 1.3 Setup GRASS GIS base, WGS 84, location and mapset
+	# 2. Download base data
+		## 2.1 Download worldclim data
+		## 2.2 Download 'Natural Earth' data
+		## 2.3 Download ocurrence data from GBIF
+	# 3. Process data
+		## 3.1 Select eBird occurence data
+		## 3.2 Import raster, vector and csv into GRASS GIS
+		## 3.3 Define project area
+		## 3.4 Convert occurence data to raster
+	# 4. Fit and use model
+		## 4.1 Fit and use MAXDM similarity-based models (GMS, KNNS)
+	# 5. Visualise model results
+		## 5.1 Generate GRASS GIS map
 
 
 # 1. Setup project

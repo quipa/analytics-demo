@@ -18,11 +18,10 @@ The project creates a Species Distribution Model (SDM) for the case study specie
 
 These similarity methods are applicable to presence-only data and are relatively straightforward to calculate and reason about.
 
+To better understand the author's choices for the project see [justifications](#justifications).
+
 Example of map for a technical report:
 ![Megaxenops parnaguae SDM](maps/gms_map.png)
-
-
-To better understand the author's choices see [justifications](#justifications).
 
 
 ## Tasks
