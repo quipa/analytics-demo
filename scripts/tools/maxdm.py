@@ -1,4 +1,13 @@
-"""MAXDM - Maxim's Species Distribution Modelling framework"""
+"""MAXDM - Maxim's Species Distribution Models
+
+SDM estimators to predict patterns based on environmental variable similarity to occurence sites.
+
+This module implements the following estimators:
+    * Geometric Median Similarity (GMS) 
+    * nearest neighbours similarity (KNNS).
+
+These similarity methods are applicable to presence-only data.
+"""
 
 import warnings
 
@@ -11,11 +20,12 @@ from sklearn.preprocessing import MinMaxScaler
 
 __author__ = 'Maxim Jaffe'
 
+# TODO code repetition between GMS and NNS, maybe create mixin class?
 
 class GMS(BaseEstimator):
-    """GMS - Geometric Median Similarity model
+    """GMS - Geometric Median Similarity estimator
     
-    Estimates species distribution based on similarity to a scaled geometric median of occurences.
+    Estimates species distribution based on similarity to a geometric median of occurences based on scaled distance.
     
     Parameters
     ----------
@@ -24,7 +34,7 @@ class GMS(BaseEstimator):
     
     Notes
     -----
-    Scaled geometric median of all occurences is calculated based on scaled distance between, where each variable is min-max scaled to a [0, 1] range.
+    Geometric median of all occurences is calculated based on scaled distance between occurence sites, where each variable is min-max scaled to a [0, 1] range.
     
     Similarity is calculated as:
         1 - (scaled distance / number of variables)
@@ -117,20 +127,18 @@ class GMS(BaseEstimator):
 
 
 class KNNS(BaseEstimator):
-    """KNNS - K Neareast Neighbour Similarity model
+    """KNNS - K Neareast Neighbour Similarity estimator
     
-    Estimates species distribution based on similarity to nearest neighbour in occurences.
+    Estimates species distribution based on similarity to nearest neighbour in occurences based on scaled distance.
     
-        Parameters
+    Parameters
     ----------
     dist: str, default='l1'
         Distance metric. See scikit-learn.
     
     Notes
     -----
-    Caculated based on scaled distances, where each variable is min-max scaled to a [0, 1] range.
-    
-    Mean scaled distance to k nearest neighbours (knn) is used to calculate similarity.
+    Caculated based on scaled distances, where each variable is min-max scaled to a [0, 1] range. Mean scaled distance to k nearest neighbours (knn) is used to calculate similarity.
     
     Similarity is calculated as:
         1 - (mean(knn scaled distances) / number of variables)
@@ -141,7 +149,6 @@ class KNNS(BaseEstimator):
     -------
     When predicting assumes variable range is within that of the fitted model variable range.
     """
-    # TODO code repetition between GMS and NNS, maybe create mixin class?
     
     _minmax_scaler = MinMaxScaler()
     
@@ -206,10 +213,10 @@ class KNNS(BaseEstimator):
         # Calculate distances to occurences
         dist = pairwise_distances(X_scaled, self.occ_scaled, metric=self.metric)
         
-        # Select k nearest neighbours
+        # Select K nearest neighbours
         knn = np.sort(dist, axis=1)[:,:self.k]
         
-        # Calculate mean of k nearest neighbours
+        # Calculate mean of K nearest neighbours
         mean_dist = knn.mean(axis=1)
         
         # Calculate similarity

@@ -15,7 +15,7 @@ GBIF_URL=https://api.gbif.org/v1/occurrence/download/request/0224635-21091411041
 
 all: setup download process model visualise
 
-# Summary
+# Summaries
 
 short-summary:
 	# 1. Setup project
@@ -96,8 +96,9 @@ $(GBIF)/0224635-210914110416597.zip:
 	mv $(GBIF)/0224635-210914110416597.csv $(GBIF)/occ_megaxenops_parnaguae.csv
 
 
-
+# 3. Process data
 process: select-gbif-occ grass-process
+
 
 select-gbif-occ: $(INTERNAL)/occ_megaxenops_parnaguae_selected.csv
 
@@ -163,8 +164,10 @@ grass-convert-gbif-occ:
 	## [TASK] 3.4 Convert occurence data to raster
 	grass --exec bash scripts/grass_convert_gbif_occ.sh
 
+
 # 4. Fit and use model
 model: sdm
+
 
 sdm:
 	## [TASK] 4.1 Fit MAXDM similarity-based models (GMS, KNNS)
@@ -179,6 +182,7 @@ grass-map:
 	## [TASK] 5.1 Generate GRASS GIS map
 	grass --exec bash scripts/grass_map.sh
 
+
 # Helpers
 
 clean:
@@ -186,11 +190,3 @@ clean:
 
 backup:
 	mv data/ data_bak/
-
-
-# setup-netlogo:
-#	https://github.com/NetLogo/NetLogo/issues/1548
-#	wget http://ccl.northwestern.edu/netlogo/6.0.2/NetLogo-6.0.2-64.tgz
-#	tar -xzf NetLogo-6.0.2-64.tgz
-
-

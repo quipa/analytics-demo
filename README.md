@@ -122,7 +122,7 @@ I prototyped [MAXDM](#maxdm) to demonstrate my ability to develop tools/models, 
 
 Note that in previous positions I have worked heavily with these types of modelling techniques / tools:
 
-* Generalised Linear Models (GLMs) based on abundance monitoring data (using [`statsmodels`](https://www.statsmodels.org/) and `scikit-learn`.
+* Generalised Linear Models (GLMs) based on abundance monitoring data (using [`statsmodels`](https://www.statsmodels.org/) and `scikit-learn`).
 * Hybrid ecological models linking GLMs to land use / land cover dynamic models agent-based / system dynamics models (using [NetLogo](https://en.wikipedia.org/wiki/NetLogo) and [Stella](https://en.wikipedia.org/wiki/STELLA_(programming_language)))
 
 <!--- 
