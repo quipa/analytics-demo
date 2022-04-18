@@ -8,8 +8,9 @@ This project showscases my data geospatial analytic skils with a case study spec
 
 The case study is the great xenops *Megaxenops parnaguae* a typical furnariid bird of the Brazilian Caatinga ([Wikipedia](https://en.wikipedia.org/wiki/Great_xenops), [BirdLife Factsheet](http://datazone.birdlife.org/species/factsheet/great-xenops-megaxenops-parnaguae)).
 
-# ![*Megaxenops parnaguae*](https://en.wikipedia.org/wiki/Great_xenops#/media/File:Great_Xenops_Megaxenops_parnaguae.jpg)
+<!-- ![*Megaxenops parnaguae*](https://en.wikipedia.org/wiki/Great_xenops#/media/File:Great_Xenops_Megaxenops_parnaguae.jpg)
 # Source: Wikipedia
+-->
 
 The project creates a Species Distribution Model (SDM) for the case study species. It uses a prototype tool <a name='maxdm'></a>[MAXDM](/scripts/tools/maxdm.py) (**Max**im's Species **D**istribution **M**odels) specifically coded for this demonstration.
 
