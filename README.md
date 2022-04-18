@@ -1,3 +1,14 @@
+<style>
+img[src~="thumbnail"] {
+   width:200px;
+   height:200px;
+}
+img[src~="bordered"] {
+   border: 1px solid black;
+}
+</style>
+
+
 # analytics-demo
 Maxim Jaffe's geospatial analytics demonstration 
 
@@ -19,7 +30,7 @@ The project creates a Species Distribution Model (SDM) for the case study specie
 These similarity methods are applicable to presence-only data and are relatively straightforward to calculate and reason about.
 
 Example of map for a technical report:
-![Megaxenops parnaguae SDM](maps/gms_map.png)
+![Megaxenops parnaguae SDM](maps/gms_map.png# thumbnail bordered)
 
 
 To better understand the author's choices see [justifications](#justifications).
